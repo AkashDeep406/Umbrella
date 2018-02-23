@@ -43,7 +43,18 @@ public abstract class UmbUtils {
      * @throws MalformedURLException
      */
     public static URL constructEndPointAPI(String code) throws MalformedURLException{
-        String url = BASE_URL + code + API_KEY;
+
+        Uri.Builder builder =  new Uri.Builder();
+        builder.scheme("http")
+                .appendPath(BASE_URL)
+                .appendPath(URL_PATH_DATA)
+                .appendPath(URL_PATH_VERSION)
+                .appendPath(URL_PATH_WEATHER)
+                .appendQueryParameter(UMB_API_CURRENT_WEATHER_CITY, code)
+                .appendQueryParameter("appid", API_KEY);
+
+        String url  =  builder.build().toString();
+
         return new URL(url);
 
     }
