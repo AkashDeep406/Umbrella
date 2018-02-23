@@ -9,6 +9,6 @@
     <string name="txt_fahenheitsymbol">°F</string>
     <string name="txt_gettingweather">Getting Weather In Your Area....</string>
     <string name="txt_windspeed">Current Wind Speed :</string>
-    <string name="txt_todaysunrise">Sun Rise At\n</string>
-    <string name="txt_todaysunset">Sun Set At\n</string>
+    <string name="txt_todaysunrise">Sunrise At\n</string>
+    <string name="txt_todaysunset">Sunset At\n</string>
 </resources>
