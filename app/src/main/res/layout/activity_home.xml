@@ -1,33 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="@dimen/umb_margin_v"
+    android:paddingLeft="@dimen/umb_margin_h"
+    android:paddingRight="@dimen/umb_margin_h"
+    android:paddingTop="@dimen/umb_margin_v"
     tools:context="umbrella.ad.com.umbrella.activity.HomeActivity">
 
-    <android.support.design.widget.AppBarLayout
+
+    <RelativeLayout
+        android:id="@+id/rlcontent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:paddingBottom="@dimen/umb_margin_v">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <TextView
+            android:id="@+id/tvhello"
+            style="@style/TextLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello!" />
+
+        <TextView
+            android:id="@+id/tvchangemetric"
+            style="@style/TextLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:clickable="true"
+            android:text="°C" />
+
+        <TextView
+            android:id="@+id/tvdescription"
+            style="@style/TextBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvhello"
+            android:layout_marginTop="@dimen/umb_padding_inner"
+            android:text="@string/txt_weatherdescription" />
+
+
+        <TextView
+            android:id="@+id/tvtemp"
+            style="@style/TextLarge2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvdescription"
+            android:layout_marginTop="@dimen/umb_margin_v_2x"
+            android:text="20°C" />
+
+
+        <TextView
+            android:id="@+id/tvmainweather"
+            style="@style/TextSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tvtemp"
+            android:layout_marginLeft="@dimen/umb_margin_h"
+            android:layout_toRightOf="@+id/tvtemp"
+            android:text="CLOUDY" />
+
+
+        <LinearLayout
+            android:id="@+id/llcontent"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvtemp"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/umb_padding_inner"
+            android:paddingTop="@dimen/umb_padding_inner">
 
-    </android.support.design.widget.AppBarLayout>
+            <TextView
+                android:id="@+id/tvmin"
+                style="@style/TextBody"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_tempmin" />
 
-    <include layout="@layout/content_main" />
+            <TextView
+                android:id="@+id/tvmax"
+                style="@style/TextBody"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/umb_margin_v"
+                android:text="@string/txt_tempmax" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tvwindspeed"
+            style="@style/TextBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llcontent"
+            android:layout_marginTop="@dimen/umb_margin_v"
+            android:text="@string/txt_windspeed" />
+
+        <!--Sun Rise -->
+
+        <ImageView
+            android:id="@+id/ivsunrise"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvwindspeed"
+            android:layout_marginTop="@dimen/umb_margin_v_2x"
+            android:src="@drawable/img_sunrise" />
+
+        <TextView
+            android:id="@+id/tvsunrisetime"
+            style="@style/TextSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/ivsunrise"
+            android:layout_below="@+id/tvwindspeed"
+            android:layout_marginLeft="@dimen/umb_padding_inner"
+            android:layout_marginTop="@dimen/umb_margin_v_2x"
+            android:layout_toRightOf="@+id/ivsunrise"
+            android:text="7AM" />
+
+
+        <!--Sun set-->
+
+        <ImageView
+            android:id="@+id/ivsunset"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivsunrise"
+            android:layout_marginTop="@dimen/umb_margin_v"
+            android:src="@drawable/img_sunset" />
+
+        <TextView
+            android:id="@+id/tvsunsettime"
+            style="@style/TextSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/ivsunset"
+            android:layout_below="@+id/ivsunrise"
+            android:layout_marginLeft="@dimen/umb_padding_inner"
+            android:layout_marginTop="@dimen/umb_margin_v"
+            android:layout_toRightOf="@+id/ivsunset"
+            android:text="7PM" />
+
+
+    </RelativeLayout>
+
+
+    <ProgressBar
+        android:id="@+id/pbgettinginfo"
+        style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:layout_centerInParent="true"
+        android:indeterminate="true"
+        android:indeterminateDrawable="@drawable/bg_progress"
+        android:progress="100" />
 
-</android.support.design.widget.CoordinatorLayout>
+
+</RelativeLayout>

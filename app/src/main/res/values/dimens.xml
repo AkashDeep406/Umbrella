@@ -1,5 +1,9 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
-    <dimen name="padding_inner">5dp</dimen>
+    <dimen name="umb_padding_inner">5dp</dimen>
+    <dimen name="umb_padding_inner_2x">10dp</dimen>
+    <dimen name="umb_margin_h">18dp</dimen>
+    <dimen name="umb_margin_v">20dp</dimen>
+    <dimen name="umb_margin_v_2x">40dp</dimen>
 
 </resources>

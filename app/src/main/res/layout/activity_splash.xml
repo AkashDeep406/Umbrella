@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:drawablePadding="@dimen/umb_padding_inner"
+        android:drawableLeft="@drawable/img_splash"
+        android:text="@string/app_name"
+        android:layout_centerInParent="true"
+        android:id="@+id/tvsplashtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextLarge"/>
+
+
+    <TextView
+        android:id="@+id/tvsubtitile"
+        style="@style/TextSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/tvsplashtitle"
+        android:layout_below="@+id/tvsplashtitle"
+        android:text="@string/txt_knowweather" />
+
+
+
+</RelativeLayout>

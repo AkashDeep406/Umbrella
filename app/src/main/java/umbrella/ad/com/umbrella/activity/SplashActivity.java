@@ -9,15 +9,21 @@ import android.support.annotation.Nullable;
 
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.widget.TextView;
+
 import umbrella.ad.com.umbrella.R;
-import umbrella.ad.com.umbrella.data.Constants;
+import umbrella.ad.com.umbrella.data.AppUtils;
 
 /**
  * Created by ajayasha on 2/21/18.
  */
 
-public class SplashActivity extends AppCompatActivity  {
+public class SplashActivity extends AppCompatActivity implements Animation.AnimationListener {
 
+    private TextView tvsplashtitle,tvsubtitile;
+    private Animation fadeIn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,26 +31,17 @@ public class SplashActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_splash);
 
 
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED        && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission                                                  .ACCESS_COARSE_LOCATION}, Constants.PERMISSION_LOCATION);
+        fadeIn = new AlphaAnimation(0.0f, 1.0f);
+        fadeIn.setDuration(2000);
+        fadeIn.setAnimationListener(this);
 
-        }
+        tvsplashtitle = findViewById(R.id.tvsplashtitle);
+        tvsplashtitle.setAnimation(fadeIn);
 
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
-                startActivity(intent);
-            }
-        },2000);
+        tvsubtitile = findViewById(R.id.tvsubtitile);
+        tvsubtitile.setAnimation(fadeIn);
+
+
 
 
 
@@ -58,4 +55,22 @@ public class SplashActivity extends AppCompatActivity  {
 
     }
 
+    @Override
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override
+    public void onAnimationEnd(Animation animation) {
+
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+        finish();
+
+
+    }
+
+    @Override
+    public void onAnimationRepeat(Animation animation) {
+
+    }
 }
